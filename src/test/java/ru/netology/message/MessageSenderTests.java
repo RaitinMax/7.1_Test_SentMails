@@ -1,3 +1,5 @@
+package ru.netology.message;
+
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -17,32 +19,10 @@ import java.util.stream.Stream;
 
 public class MessageSenderTests {
 
-    GeoService geoService;
-    LocalizationService localizationService ;
-    Location location;
+    GeoService geoService = Mockito.mock(GeoService.class);;
+    LocalizationService localizationService = new LocalizationServiceImpl();;
+    Location location  = Mockito.mock(Location.class);;
 
-    @BeforeAll
-    public static void beforeAll() {
-        System.out.println("Tests starts");
-    }
-
-    @BeforeEach
-    public void beforeEach() {
-        System.out.println("Test started");
-        location = Mockito.mock(Location.class);
-        geoService = Mockito.mock(GeoService.class);
-        localizationService = new LocalizationServiceImpl();
-    }
-
-    @AfterEach
-    public void afterEach() {
-        System.out.println("Test finished");
-    }
-
-    @AfterAll
-    public static void afterAll() {
-        System.out.println("Tests finished");
-    }
 
     @ParameterizedTest
     @MethodSource("getArguments")

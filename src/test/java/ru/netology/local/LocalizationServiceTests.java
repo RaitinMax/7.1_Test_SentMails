@@ -1,3 +1,5 @@
+package ru.netology.local;
+
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,28 +14,7 @@ import ru.netology.i18n.LocalizationServiceImpl;
 import java.util.stream.Stream;
 
 public class LocalizationServiceTests {
-    LocalizationService location;
-
-    @BeforeAll
-    public static void beforeAll() {
-        System.out.println("Tests starts");
-    }
-
-    @BeforeEach
-    public void beforeEach() {
-        System.out.println("Test started");
-        location = new LocalizationServiceImpl();
-    }
-
-    @AfterEach
-    public void afterEach() {
-        System.out.println("Test finished");
-    }
-
-    @AfterAll
-    public static void afterAll() {
-        System.out.println("Tests finished");
-    }
+    LocalizationService location = new LocalizationServiceImpl();
 
     @ParameterizedTest
     @MethodSource("getArguments")

@@ -8,7 +8,6 @@ import org.mockito.Mockito;
 import ru.netology.entity.Country;
 import ru.netology.entity.Location;
 import ru.netology.geo.GeoService;
-import ru.netology.geo.GeoServiceImpl;
 import ru.netology.i18n.LocalizationService;
 import ru.netology.i18n.LocalizationServiceImpl;
 import ru.netology.sender.MessageSender;
@@ -19,10 +18,9 @@ import java.util.stream.Stream;
 
 public class MessageSenderTests {
 
-    GeoService geoService = Mockito.mock(GeoService.class);;
-    LocalizationService localizationService = new LocalizationServiceImpl();;
-    Location location  = Mockito.mock(Location.class);;
-
+    GeoService geoService = Mockito.mock(GeoService.class);
+    LocalizationService localizationService = new LocalizationServiceImpl();
+    Location location = Mockito.mock(Location.class);
 
     @ParameterizedTest
     @MethodSource("getArguments")
@@ -38,5 +36,4 @@ public class MessageSenderTests {
     public static Stream<Arguments> getArguments() {
         return Stream.of(Arguments.of("Добро пожаловать", Country.RUSSIA), Arguments.of("Welcome", Country.USA));
     }
-
 }
